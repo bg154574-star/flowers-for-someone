@@ -1,21 +1,19 @@
-onload = () => {
-  const c = setTimeout(() => {
-    document.body.classList.remove("not-loaded");
+window.onload = () => {
+  const text = "PARA MI POKEBOLA Y MI LUNETA BOLUDA PRECIOSA 🥰❤️";
+  const titleElement = document.getElementById("title");
 
-    const text = "PARA MI POKEBOLA Y LUNETA BOLUDA PRECIOSA 🥰❤️";
-    const titleElement = document.getElementById('title');
-    let index = 0;
+  let index = 0;
 
-    function appendTitle() {
-      if (index < text.length) {
-        titleElement.innerHTML = text.slice(0, index + 1);
-        index++;
-        setTimeout(appendTitle, 100);
-      }
+  function writeText() {
+    if (index < text.length) {
+      titleElement.innerHTML += text[index];
+      index++;
+      setTimeout(writeText, 100);
     }
+  }
 
-    appendTitle();
+  // Mostrar todo sin depender de clases
+  document.body.classList.remove("not-loaded");
 
-    clearTimeout(c);
-  }, 1000);
-};}
+  writeText();
+};
