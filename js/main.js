@@ -12,8 +12,5 @@ window.onload = () => {
     }
   }
 
-  // Mostrar todo sin depender de clases
-  document.body.classList.remove("not-loaded");
-
   writeText();
 };
